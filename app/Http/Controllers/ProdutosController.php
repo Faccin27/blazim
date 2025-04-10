@@ -10,10 +10,10 @@ class ProdutosController extends SiteBaseController
     {
         return view('site.produtos', $this->viewData);
     }
-
     public function detalhes()
     {
-        return view('site.produtosDetalhes', $this->viewData);
+        return view('site.produtosDetalhe', $this->viewData);
     }
+
 
 }
