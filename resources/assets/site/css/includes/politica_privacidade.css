@@ -1,0 +1,318 @@
+@import url('https://use.fontawesome.com/releases/v5.7.2/css/all.css');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+/* Btn flutuante */
+.showBoxPrivacy{
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(180, 180, 180, 1);
+    z-index: 999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+}
+.showBoxPrivacy:hover{
+    background: #87BE58;
+
+    transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+}
+
+
+/* Box flutuante */
+.closeBoxPrivacy{
+    position: absolute;
+    top: -15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+    color: #858882;
+    font-size: 20px;
+    font-weight: 300;
+
+    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+}
+.closeBoxPrivacy:hover{
+    color: #fff;
+    background: #87BE58;
+}
+
+.boxPrivacy{
+    font-family: 'Lato', sans-serif;
+    border-radius: 9px;
+    padding: 20px;
+    width: 330px;
+    position: fixed;
+    bottom: 70px;
+    left: 50px;
+    z-index: 999999;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+
+    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+}
+.boxPrivacy.showPriv{
+    left: 70px;
+
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+
+    transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+}
+
+.primaryBox{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.primaryBox p{
+    font-size: 11px;
+    line-height: 15px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #000;
+    font-family: 'Lato', sans-serif;
+}
+.primaryBox .linkBox{
+    text-decoration: underline;
+    color: #1A1A1A;
+    font-size: 13px;
+    margin-bottom: 5px;
+    font-family: 'Lato', sans-serif;
+}
+.primaryBox .linkBox:last-child{
+    margin-bottom: 0;
+}
+
+.btnsPrimaryBox{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+.btnsPrimaryBox a{
+    width: 45%;
+    padding: 10px 10px;
+    color: #000000;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 30px;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+}
+.btnsPrimaryBox a.btnShowOptionsPrivacy{
+    background: #fff;
+
+    box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+    -moz-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+    -webkit-box-shadow: 0px 3px 6px 0px rgba(0,0,0,0.16);
+}
+.btnsPrimaryBox a.btnAcceptPrivacy{
+    background: #87BE58;
+    color: #fff;
+}
+
+.secondaryBox{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.secondaryBox h6{
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #000;
+    margin-bottom: 5px;
+    font-family: 'Lato', sans-serif;
+}
+.secondaryBox p{
+    font-size: 12px;
+    line-height: 17px;
+    margin-bottom: 15px;
+    color: #000;
+    margin-bottom: 5px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}
+
+.listCookie{
+    width: 100%;
+    flex-direction: column;
+    max-height: 300px;
+    overflow-y: scroll;
+    padding-right: 10px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+.listCookie::-webkit-scrollbar-track {
+    background: rgba(180, 180, 180, 0.5);;
+    border-radius: 5px;
+}
+.listCookie::-webkit-scrollbar {
+    width: 10px;
+    background: #fff;
+    border-radius: 5px;
+}
+.listCookie::-webkit-scrollbar-thumb {
+    background: #87BE58;
+    border-radius: 5px;
+}
+
+.groupCookie{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #C4C4C4;
+}
+.groupCookie:last-child{
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border: none;
+}
+.itemCookie{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.textItemCookie{
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    height: -moz-fit-content;
+}
+.textItemCookie h5{
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #1A1A1A;
+}
+.textItemCookie span{
+    color: #BBB6B6;
+    font-size: 10px;
+    line-height: 15px;
+}
+
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    min-width: 40px;
+    height: 19px;
+}
+.switch input{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.roundSwitch{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #858882;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.roundSwitch:before{
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+input:checked + .roundSwitch{
+    background-color: #87BE58;
+}
+input:focus + .roundSwitch{
+    box-shadow: 0 0 1px #87BE58;
+}
+input:checked + .roundSwitch:before{
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+}
+/* Rounded sliders */
+.roundSwitch.round {
+    border-radius: 20px;
+}
+.roundSwitch.round:before {
+    border-radius: 20px;
+}
+
+.saveCookies{
+    width: 100%;
+    padding: 10px 10px;
+    color: #000000;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 30px;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    background: #87BE58;
+    color: #fff;
+}
+
+
+/* ---------- RESPONSIVO ---------- */
+@media screen and (max-width: 420px){
+    .boxPrivacy{
+        padding: 15px;
+        width: 280px;
+        bottom: 50px;
+        left: 20px;
+    }
+    .boxPrivacy.showPriv{
+        left: 20px;
+        bottom: 80px;
+    }
+}

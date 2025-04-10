@@ -1,0 +1,94 @@
+/* POPUP BOX */
+.modal_wrap{
+    position:fixed;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    background:rgba(0,0,0,0.8);
+    overflow: hidden;
+    opacity:0;
+    pointer-events:none;
+    z-index:888888888;
+
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+
+    /* centraliza na vertical */
+    -ms-align-items: center;
+    -webkit-align-items: center;
+    align-items: center;
+
+    /* centraliza na horizontal */
+    -ms-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+
+    /* transitions */
+    transition-duration:0.35s;
+    -webkit-transition-duration:0.35s;
+    -moz-transition-duration:0.35s;
+}
+.modal_wrap.show{
+    pointer-events:auto;
+    opacity:1;
+}
+    .modal_wrap .modal_box{
+        position:relative;
+        width:90%;
+        max-width:500px;
+        height:auto;
+        display:table;
+        padding:25px;
+        border-radius:8px;
+        background:#fff;
+        opacity:0;
+        pointer-events:none;
+
+        transform: scale(0.8) rotate(0deg);
+        transition-duration:0.35s;
+        -webkit-transition-duration:0.35s;
+        -moz-transition-duration:0.35s;
+    }
+    .modal_wrap.show .modal_box{
+        opacity:1;
+        pointer-events:auto;
+        transform: scale(1) rotate(0deg);
+    }
+        .modal_wrap .modal_data{
+            width:100%;
+            height:auto;
+            display:flex;
+            flex-direction: column;
+
+        }
+        .modal_wrap .modal_data img{
+            width:100%;
+        }
+        .modal_wrap .modal_close{
+            width: 40px;
+            height: 40px;
+            display: table;
+            background: #333 url("../../img/icons/icon_close.png") no-repeat center center;
+            background-size: 40%;
+            position: absolute;
+            top: 0px;
+            border-top-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+            right: 0px;
+            border: 0px;
+            cursor: pointer;
+        }
+
+
+        #mainpop .modal_box{
+            width:auto;
+            padding:4px;
+            max-width:800px;
+        }
+        #mainpop img{
+            width:auto;
+            max-height:800px;
+            border-radius:8px;
+        }

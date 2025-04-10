@@ -1,0 +1,28 @@
+.miniheader{
+    background-color: #EEE;
+}
+
+.email-info, .whatsapp-info {
+    display: flex;
+    align-items: center;
+    padding-top: 14px;
+    padding-bottom: 12px;
+}
+
+.email-text, .whatsapp-text {
+    color: #1A4581;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.email-text {
+    margin-left: 9px;
+}
+
+.whatsapp-text {
+    margin-left: 9px;
+}
+

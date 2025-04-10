@@ -1,0 +1,45 @@
+#banner .swiper-wrapper {
+    padding-bottom: 0!important
+}
+
+.swiper-pagination {
+    top: auto!important;
+    padding: 10px 0!important;
+    bottom: 30px!important;
+    z-index: 2;
+}
+
+.swiper-pagination-bullet {
+    background: transparent;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    width: 17px;
+    height: 12px;
+    position: relative;
+    opacity: 1;
+}
+
+.swiper-pagination-bullet-active {
+    background: #fff;
+    width: 23px;
+}
+
+.swiper-button-next:after,.swiper-rtl .swiper-button-prev:after,.swiper-button-prev:after,.swiper-rtl .swiper-button-next:after {
+    display: none !important;
+}
+
+.swiper-button-prev,
+.swiper-container-rtl .swiper-button-next {
+    background: url("../img/arrows.fw.png") no-repeat left top !important;
+    left: 0px;
+    right: auto;
+    width: 41px;
+    height: 41px;
+}
+.swiper-button-next,
+.swiper-container-rtl .swiper-button-prev {
+    background: url("../img/arrows.fw.png") no-repeat right top !important;
+    right: 0px;
+    width: 41px;
+    height: 41px;
+}

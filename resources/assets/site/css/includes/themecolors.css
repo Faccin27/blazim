@@ -1,0 +1,157 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css');
+
+h1,h2,h3,h4,h5,h6{font-family:'NOME DA FONTE',sans-serif;}
+a,span,p,select,button,input,textarea,li,table{font-family:'NOME DA FONTE',sans-serif;}
+p{
+    font-size: 15px;
+    color: #444;
+    line-height: 20px;
+    margin-bottom: 15px;
+}
+p:last-child{margin-bottom:0px;}
+
+html,
+body{background: #fff;}
+
+.input{background: #fff;}
+.input{border: 1px solid #ddd;}
+
+.big-t {
+    font-size: clamp(34px,4vw,50px);
+    line-height: clamp(38px,4vw,54px);
+    transition-duration: .5s;
+    -moz-transition-duration: .5s;
+    -webkit-transition-duration: .5s;
+}
+
+.main-t {
+    font-size: clamp(24px,4vw,40px);
+    line-height: clamp(28px,4vw,44px);
+    transition-duration: .5s;
+    -moz-transition-duration: .5s;
+    -webkit-transition-duration: .5s;
+}
+
+.sub-t {
+    font-size: clamp(22px,4vw,28px);
+    line-height: clamp(25px,4vw,32px);
+    transition-duration: .5s;
+    -moz-transition-duration: .5s;
+    -webkit-transition-duration: .5s;
+}
+
+.med-t {
+    font-size: clamp(16px,4vw,20px);
+    line-height: clamp(18px,4vw,23px);
+    transition-duration: .5s;
+    -moz-transition-duration: .5s;
+    -webkit-transition-duration: .5s;
+}
+
+.small-t {
+    font-size: 14px;
+    line-height: calc(normal+4);
+    transition-duration: .5s;
+    -moz-transition-duration: .5s;
+    -webkit-transition-duration: .5s;
+}
+
+.blackFont {
+    color: #000;
+}
+
+.whiteFont {
+    color: #fff;
+}
+
+.darkGoldFont {
+    color: #997149;
+}
+
+.goldFont {
+    color: #D4A577;
+}
+
+.pagination{
+    width: fit-content;
+    width: -moz-fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 40px auto 0 auto;
+    flex-wrap: wrap;
+}
+.pagination li{
+    margin: 0 2px;
+}
+.pagination li a,
+.pagination li span{
+    color: #000;
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    min-height: 35px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #000;
+    border-radius: 25px;
+    font-size: 14px;
+}
+.pagination li:hover a,
+.pagination li.active a,
+.pagination li:hover span,
+.pagination li.active span{
+    color: #fff;
+    background: #000;
+}
+
+#menu .dl-menu > li:hover > a,
+#menu .dl-menu > li.ativo > a{
+    color: #fff;
+    background: #000;
+}
+
+.fullW{
+    width: 100%;
+}
+
+.zoomEfct{
+    transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+}
+.zoomEfct:hover{
+    transform: scale(0.95);
+}
+
+.uppercase{
+    text-transform: uppercase;
+}
+
+.black{
+    font-weight: 900;
+}
+.bold,
+strong,b{
+    font-weight:bold;
+}
+.extrabold{
+    font-weight: 800;
+}
+.italic{
+    font-style: italic;
+}
+.light{
+    font-weight: 300;
+}
+.medium{
+    font-weight: 500;
+}
+.normal{
+    font-weight: 400;
+}
+.semibold{
+    font-weight: 600;
+}
