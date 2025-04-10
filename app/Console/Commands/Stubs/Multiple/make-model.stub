@@ -1,0 +1,61 @@
+<?php
+
+namespace App\Models;
+
+use Cviebrock\EloquentSluggable\Sluggable;
+use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\LengthAwarePaginator;
+
+class {{className}} extends Model
+{
+    use HasFactory, Sluggable, SluggableScopeHelpers;
+
+    protected $table = "{{table}}";
+
+    protected $fillable = [
+        'id',
+        'nome',
+        'slug',
+        'texto',
+        'foto',
+        'foto_thumb',
+        'ordem'
+    ];
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'nome',
+                'onUpdate' => true
+            ]
+        ];
+    }
+
+    public function fotos()
+    {
+        return $this->hasMany({{className}}Foto::class, 'id_{{variableName}}', 'id')->orderBy('{{table}}_fotos.ordem', 'ASC')->orderBy('{{table}}_fotos.id', 'ASC');
+    }
+
+    public function scopeSearch(Builder $builder, string $string = "")
+    {
+        if($string){
+            $builder->where('{{table}}.nome', 'LIKE', "%{$string}%");
+        }
+
+        return $builder;
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::addGlobalScope('orderDefault', function(Builder $builder) {
+            $builder->orderBy('{{table}}.ordem', 'ASC');
+            $builder->orderBy('{{table}}.id', 'DESC');
+        });
+    }
+}

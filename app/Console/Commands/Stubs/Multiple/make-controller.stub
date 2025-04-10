@@ -1,0 +1,250 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Events\UserCreateEvent;
+use App\Events\UserDestroyEvent;
+use App\Events\UserUpdateEvent;
+use App\Events\UserUpdateOrderEvent;
+use App\Http\Requests\{{className}}\{{className}}FotosRequest;
+use App\Http\Requests\{{className}}\{{className}}StoreRequest;
+use App\Http\Requests\{{className}}\{{className}}UpdateRequest;
+use App\Models\{{className}};
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\{{className}}Foto;
+use App\Traits\ImageTrait;
+use App\Traits\UploadTrait;
+
+class {{className}}Controller extends Controller
+{
+    use UploadTrait, ImageTrait;
+
+    private const POR_PAGINA = 10;
+
+    private const CAMINHOS = [
+        'FOTOS' => 'fotos_{{variableName}}',
+        'THUMBS' => 'fotos_{{variableName}}/thumbs'
+    ];
+
+    private const FOTO_THUMB = [
+        'LARGURA' => 400,
+        'ALTURA' => 300
+    ];
+
+    private const GALERIA_THUMB = [
+        'LARGURA' => 400,
+        'ALTURA' => 300
+    ];
+
+    /* Views */
+    public function index(Request $request)
+    {
+        $ViewData['porPagina'] = $request->integer('porPagina', self::POR_PAGINA);
+        $ViewData['busca'] = $request->busca ?? "";
+
+        $ViewData['{{table}}'] = {{className}}::search($ViewData['busca'])->paginate($ViewData['porPagina'] == -1 ? PHP_INT_MAX : $ViewData['porPagina']);
+
+        return view('admin.{{variableName}}.list', $ViewData);
+    }
+
+    public function create()
+    {
+        return view('admin.{{variableName}}.create');
+    }
+
+    public function edit({{className}} ${{variableName}})
+    {
+        $ViewData['{{variableName}}'] = ${{variableName}};
+
+        return view('admin.{{variableName}}.edit', $ViewData);
+    }
+
+    public function fotos({{className}} ${{variableName}})
+    {
+        $ViewData['{{variableName}}'] = ${{variableName}};
+
+        return view('admin.{{variableName}}.fotos', $ViewData);
+    }
+
+    /* Data */
+
+    public function store({{className}}StoreRequest $request)
+    {
+        ${{variableName}} = new {{className}}($request->validated());
+
+        ${{variableName}}->foto = $this->uploadFoto($request);
+        ${{variableName}}->foto_thumb = $this->uploadFotoThumb($request);
+
+        ${{variableName}}->save();
+
+        $this->store{{className}}Foto($request, ${{variableName}});
+
+        event(new UserCreateEvent(${{variableName}}));
+
+        return response()->json([
+            'mensagem' => "Registro de {{labelName}} cadastrado.",
+            'redirecionamento' => route('admin.{{variableName}}')
+        ], 201);
+    }
+
+    public function update({{className}}UpdateRequest $request, {{className}} ${{variableName}})
+    {
+        ${{variableName}}->update($request->except(['_token']));
+
+        event(new UserUpdateEvent(${{variableName}}));
+
+        return response()->json(['mensagem' => "Registro de {{labelName}} alterado."], 200);
+    }
+
+    public function updateFotos({{className}}FotosRequest $request, {{className}} ${{variableName}})
+    {
+        $foto = $this->uploadFoto($request);
+        $foto_thumb = $this->uploadFotoThumb($request);
+
+        if(!empty($foto) && !empty($foto_thumb)){
+
+            deleteFile(${{variableName}}->foto);
+            deleteFile(${{variableName}}->foto_thumb);
+
+            ${{variableName}}->update([
+                'foto' => $foto,
+                'foto_thumb' => $foto_thumb
+            ]);
+
+            event(new UserUpdateEvent(${{variableName}}));
+        }
+
+        $this->store{{className}}Foto($request, ${{variableName}});
+
+        return response()->json(['mensagem' => "Fotos alteradas"], 200);
+    }
+
+    public function order(Request $request)
+    {
+        foreach ($request->ordem as $posicao => $id) {
+
+            {{className}}::query()->where('{{table}}.id', $id)->update(['ordem' => $posicao]);
+        }
+
+        event(new UserUpdateOrderEvent(new {{className}}()));
+
+        return response()->json(['mensagem' => "Ordem de {{labelName}} alterada."], 200);
+    }
+
+    public function order{{className}}Foto(Request $request)
+    {
+        foreach ($request->ordem as $posicao => $id) {
+
+            {{className}}Foto::query()->where('{{table}}_fotos.id', $id)->update(['ordem' => $posicao]);
+        }
+
+        event(new UserUpdateOrderEvent(new {{className}}Foto()));
+
+        return response()->json([
+            'tipo' => "success"
+        ], 200);
+    }
+
+    public function destroyAll{{className}}Foto({{className}} ${{variableName}})
+    {
+        foreach (${{variableName}}->fotos as ${{variableName}}Foto) {
+            deleteFile(${{variableName}}Foto->foto);
+            deleteFile(${{variableName}}Foto->foto_thumb);
+        }
+
+        ${{variableName}}->fotos()->delete();
+
+        event(new UserDestroyEvent(${{variableName}}));
+
+        return response()->json(['mensagem' => "Fotos removidas."], 200);
+    }
+
+    public function destroy{{className}}Foto({{className}}Foto ${{variableName}}Foto)
+    {
+        deleteFile(${{variableName}}Foto->foto);
+        deleteFile(${{variableName}}Foto->foto_thumb);
+
+        ${{variableName}}Foto->delete();
+
+        event(new UserDestroyEvent(${{variableName}}Foto));
+
+        return response()->json(['mensagem' => "Foto removida."], 200);
+    }
+
+    public function destroy({{className}} ${{variableName}})
+    {
+        deleteFile(${{variableName}}->foto);
+        deleteFile(${{variableName}}->foto_thumb);
+
+        foreach (${{variableName}}->fotos as ${{variableName}}Foto){
+            deleteFile(${{variableName}}Foto->foto);
+            deleteFile(${{variableName}}Foto->foto_thumb);
+        }
+
+        ${{variableName}}->delete();
+
+        event(new UserDestroyEvent(${{variableName}}));
+
+        return response()->json(['mensagem' => "Registro de {{labelName}} removido."], 200);
+    }
+
+    private function uploadFoto($request)
+    {
+        if(!$request->hasFile('foto')){
+            return null;
+        }
+
+        $foto = $this->upload($request->file('foto'), self::CAMINHOS['FOTOS']);
+
+        $this->resize($foto);
+
+        return $foto;
+    }
+
+    private function uploadFotoThumb($request)
+    {
+        if(!$request->hasFile('foto')){
+            return null;
+        }
+
+        $foto = $this->upload($request->file('foto'), self::CAMINHOS['THUMBS']);
+
+        $this->crop(
+            $foto,
+            $request->foto_x,
+            $request->foto_y,
+            $request->foto_width,
+            $request->foto_height
+        );
+
+        $this->resize($foto, self::FOTO_THUMB['LARGURA'], self::FOTO_THUMB['ALTURA']);
+
+        return $foto;
+    }
+
+    private function store{{className}}Foto($request, ${{variableName}}): void
+    {
+        if(!$request->hasFile('fotos')){
+            return;
+        }
+
+        foreach ($request->file('fotos') as $file){
+
+            $foto = $this->upload($file, self::CAMINHOS['FOTOS']);
+
+            $this->resize($foto);
+
+            $foto_thumb = $this->upload($file, self::CAMINHOS['THUMBS']);
+
+            $this->resizeFit($foto_thumb, self::GALERIA_THUMB['LARGURA'], self::GALERIA_THUMB['ALTURA']);
+
+            ${{variableName}}Foto = ${{variableName}}->fotos()->create([
+                'foto' => $foto,
+                'foto_thumb' => $foto_thumb
+            ]);
+
+            event(new UserCreateEvent(${{variableName}}Foto));
+        }
+    }
+}

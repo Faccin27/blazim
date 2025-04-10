@@ -1,0 +1,12 @@
+
+/* {{className}} */
+Route::get('/{{variableName}}', [{{className}}Controller::class, 'index'])->name('{{variableName}}')->middleware('auth');
+Route::get('/{{variableName}}/criar', [{{className}}Controller::class, 'create'])->name('{{variableName}}.create')->middleware('auth');
+Route::get('/{{variableName}}/{{{variableName}}}', [{{className}}Controller::class, 'edit'])->name('{{variableName}}.edit')->middleware('auth');
+Route::get('/{{variableName}}/fotos/{{{variableName}}}', [{{className}}Controller::class, 'fotos'])->name('{{variableName}}.fotos')->middleware('auth');
+
+Route::post('/{{variableName}}', [{{className}}Controller::class, 'store'])->name('{{variableName}}.store')->middleware('auth');
+Route::post('/{{variableName}}/alterar/{{{variableName}}}', [{{className}}Controller::class, 'update'])->name('{{variableName}}.update')->middleware('auth');
+Route::post('/{{variableName}}/alterar-fotos/{{{variableName}}}', [{{className}}Controller::class, 'updateFotos'])->name('{{variableName}}.updateFotos')->middleware('auth');
+Route::post('/{{variableName}}/ordenar', [{{className}}Controller::class, 'order'])->name('{{variableName}}.order')->middleware('auth');
+Route::post('/{{variableName}}/destruir/{{{variableName}}}', [{{className}}Controller::class, 'destroy'])->name('{{variableName}}.destroy')->middleware('auth');

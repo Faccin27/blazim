@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class {{className}}Foto extends Model
+{
+    use HasFactory;
+
+    protected $table  = "{{table}}_fotos";
+
+    protected $fillable = [
+        'id',
+        'id_{{variableName}}',
+        'foto',
+        'foto_thumb',
+        'ordem'
+    ];
+
+    public function {{variableName}}()
+    {
+        return $this->belongsTo({{className}}::class, 'id_{{variableName}}', 'id');
+    }
+}
