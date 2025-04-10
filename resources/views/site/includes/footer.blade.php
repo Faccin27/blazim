@@ -78,26 +78,15 @@
 
 
 {{-- WhatsApp flutuante --}}
-<a href="javascript:;" class="whatsFlutuante flex middle"
+{{-- <a href="javascript:;" class="whatsFlutuante flex middle"
     onclick="funcoesHelper.sendWhatsapp('{{ $site->whatsapp }}', 'Olá, tudo bem? Estava navegando no site {{ config('app.name') }} e gostaria de mais informações.')">
     <span>Precisa de ajuda?</span>
 
     <div class="iconWhatsFlutuante">
         <i class="fa-brands fa-whatsapp"></i>
     </div>
-</a>
+</a> --}}
 {{-- WhatsApp flutuante --}}
-
-<a href="javascript:;" class="whatsFlutuante flex middle"
-    onclick="funcoesHelper.sendWhatsapp('{{ $site->whatsapp }}', 'Olá, tudo bem? Estava navegando no site {{ config('app.name') }} e gostaria de mais informações.')">
-    <span class="showWhats">Podemos Ajudar?</span>
-
-    <div class="iconWhatsFlutuante showWhats pseudoElemento">
-        <figure class="whFitImg">
-            <img src="{{ @Vite::asset('resources/assets/site/img/wppFlutuante.svg') }}" alt="WhatsApp Icon">
-        </figure>
-    </div>
-</a>
 
 <script src="{{ asset('admin-template/extensions/jquery/jquery.min.js') }}"></script>
 
@@ -107,42 +96,37 @@
 <script src="https://grupolovatel.com.br/api-lgpd/assets/api/js/script.js"></script>
 <!-- Não remover -->
 <script>
-    /* Header fixo */
-    $(window).scroll(function() {
-        var scrollTop = $(window).scrollTop();
-        if (scrollTop > 90) {
-            $("header").addClass("scroll");
-            $("body").addClass("scroll");
-        } else {
-            $("header").removeClass("scroll");
-            $("body").removeClass("scroll");
-        }
-    });
+let lastScrollTop = 0;
+let ticking = false;
 
-    /* Header fixo mobile one page */
-    $(".dl-menu li").click(function() {
-        var destino = $(this).find("a").attr("rel");
-        var header = 220;
+function handleScroll() {
+    const scrollTop = $(window).scrollTop();
 
-        $('html, body').animate({
-            scrollTop: $("#" + destino).offset().top - header
-        }, 800);
+    if (scrollTop > 200) {
+        $("header.scroller").addClass("scroll");
+    } else {
+        $("header").removeClass("scroll");
+    }
+    ticking = false;
+}
 
-        $(".dl-menu li").removeClass("ativo");
-        $(this).addClass("ativo");
+$(window).on("scroll", function () {
+    if (!ticking) {
+        window.requestAnimationFrame(handleScroll);
+        ticking = true;
+    }
+});
 
-        $(".mb-menu").removeClass('act');
-        $('.hamburger--spin').removeClass('is-active');
-        $('#full-menu').removeClass('act');
-    });
 
-    /* Scroll section */
-    $(".linkSection").click(function() {
-        var destino = $(this).attr("rel");
-        var header = 220;
+    const origem = document.querySelector('.submenuProdutosDesk');
+    const destinos = document.querySelectorAll('.produtosSubmenuDesk');
 
-        $('html, body').animate({
-            scrollTop: $("#" + destino).offset().top - header
-        }, 800);
-    });
+    if (origem && destinos.length) {
+        const altura = origem.getBoundingClientRect().height;
+
+        destinos.forEach(destino => {
+            destino.style.height = `${altura}px`;
+        });
+    }
+
 </script>

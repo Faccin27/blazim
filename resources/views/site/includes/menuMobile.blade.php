@@ -12,5 +12,37 @@
 </div>
 
 <div class="menuMobileContent">
-    @include('site.includes.menu')
+    @include('site.includes.formSearch')
+
+    <ul class="menuMobileList">
+        <li {!! Request::routeIs('home') ? 'class="ativo"' : null !!}><a href="{{ route('home') }}">Início</a></li>
+        <li {!! Request::routeIs('sobre') ? 'class="ativo"' : null !!}><a href="{{ route('sobre') }}">Sobre</a></li>
+        <li {!! Request::routeIs('produtos*') ? 'class="ativo"' : null !!}><a class="produtosMobile" href="javascript:;">Produtos</a> </li>
+        <li {!! Request::routeIs('contato') ? 'class="ativo"' : null !!}><a href="{{ route('contato') }}">Contato</a></li>
+        <li {!! Request::routeIs('contato') ? 'class="ativo"' : null !!}><a href="{{ route('contato') }}">Representantes</a></li>
+
+    </ul>
+    <a href="javascript:;" class="btnLogin flex middle blueFont">
+        Pedidos
+    </a>
+</div>
+
+<div class="listagemProdutos" >
+    <div class="back-button" onclick="goBack()">←</div>
+    <ul class="mobile-subMenu">
+        {{-- Loop de categorias--}}
+
+        <li class="mobile-submenu-item margin20" >
+            <a href="javascript:;" class="categoria-link" >Nome marca</a>
+            <ul class="mobile-dropMenu categoria-id">
+                {{-- Loop de subcategoria --}}
+
+                <li class="mobile-product-item margin20">
+                    <a href="javascript:;">Nome produto</a>
+                </li>
+
+            </ul>
+        </li>
+
+    </ul>
 </div>
