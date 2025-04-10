@@ -66,3 +66,13 @@ body{
     transform: translateY(0);
     transition-delay: 0.6s;
 }
+
+.forslides{
+    background-color: #F5F5F5;
+}
+
+.item_marcas img{
+    border-radius: 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 7px 29px 0px rgba(237, 237, 237, 0.20);
+}
