@@ -150,3 +150,132 @@ body{
     letter-spacing: -0.9px;
     text-transform: uppercase;
 }
+
+
+.footer {
+    background-image: url('../img/footerbk.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white; /* opcional para melhorar contraste */
+    min-height: 694px;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 83px;
+    padding-bottom: 66px;
+    text-align: center;
+  }
+
+  .icon {
+    width: 25px;
+    height: 25px;
+  }
+
+  .logo {
+    padding-right: 60px;
+}
+
+  .icon:first-child {
+    margin-right: 11px;
+  }
+
+  .icon:last-child {
+    margin-left: 11px;
+  }
+
+
+  .coluna {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .titulo {
+    color: #FFF;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 10px;
+  }
+
+  .coluna ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .coluna li {
+    color: #FFF;
+    font-family: Poppins, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    transition: color 0.2s ease;
+    cursor: pointer;
+  }
+
+  .coluna li:hover {
+    color: #d1d1d1;
+  }
+
+  .endereco {
+    padding-top: 19px;
+    padding-bottom: 19px;
+    line-height: 1.5;
+    cursor: default;
+  }
+
+  .email {
+    margin-top: 0;
+    padding-bottom: 19px;
+    cursor: pointer;
+  }
+
+  .email:hover {
+    color: #d1d1d1;
+  }
+
+
+  .fale-conosco-botao {
+    display: flex;
+    padding: 11px 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    background: #59C00B;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  .fale-conosco-botao:hover {
+    filter: brightness(1.1);
+  }
+
+  .fale-texto {
+    color: #FFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+
+
+.copyright p,.copyright a{
+    color: #fff;
+    font-size: 15px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 55px;
+}
