@@ -37,7 +37,7 @@
                         <img src="{{ @Vite::asset('resources/assets/site/img/cartIcon.png') }}" alt="Carrinho">
                     </div>
 
-                    <span>10</span>
+                    <span>1</span>
                 </a>
             </div>
         </div>
@@ -105,7 +105,7 @@
                         <img src="{{ @Vite::asset('resources/assets/site/img/cartIcon.png') }}" alt="Carrinho">
                     </div>
 
-                    <span>10</span>
+                    <span>1</span>
                 </a>
             </div>
         </div>
