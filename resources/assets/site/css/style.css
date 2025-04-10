@@ -137,6 +137,9 @@ body{
     margin-bottom: 25px;
 }
 
+.btn_login:hover{
+    background-color: #005EE2;
+}
 
 
 .products_title{
@@ -270,12 +273,18 @@ body{
     line-height: normal;
   }
 
-
-
 .copyright p,.copyright a{
     color: #fff;
     font-size: 15px;
     margin: 0 auto;
     text-align: center;
     padding-bottom: 55px;
+}
+
+.slides_prod{
+    position: relative;
+}
+
+.slidesbrand{
+    position: relative;
 }

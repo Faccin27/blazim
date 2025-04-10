@@ -28,7 +28,7 @@
 
     <section class="forslides container">
         <div class="main flex_c">
-            <section class="slides margin80">
+            <section class="slides margin80 slidesbrand">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         @for ($s = 0; $s < 5; $s++)
@@ -37,9 +37,10 @@
                             </a>
                         @endfor
                     </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
+
                 </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </section>
         </div>
     </section>
@@ -80,9 +81,9 @@
                                 </div>
                             @endfor
                         </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
                     </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </section>
             </section>
         </div>
