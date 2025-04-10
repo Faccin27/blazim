@@ -1,0 +1,28 @@
+.about_box{
+    padding: 60px;
+    border-radius: 8px 0px 0px 8px;
+    background: #FFF;
+}
+.about_title{
+    color: #1A4581;
+    font-family: Raleway;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 100%; /* 30px */
+    letter-spacing: -0.9px;
+}
+
+.about_description{
+    color: #3F3F3F;
+    text-align: justify;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 24px */
+}
+
+.about_image img{
+    border-radius: 10px;
+}
