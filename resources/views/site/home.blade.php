@@ -28,18 +28,62 @@
 
     <section class="forslides container">
         <div class="main flex_c">
-            <section class="slides">
+            <section class="slides margin80">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                         @for ($s = 0; $s < 5; $s++)
                             <a href="javascript:;" class="swiper-slide item_marcas">
-                                <img src="{{ @Vite::asset('resources/assets/site/img/powerdent.png') }}" >
+                                <img src="{{ Vite::asset('resources/assets/site/img/powerdent.png') }}">
                             </a>
                         @endfor
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
                 </div>
+            </section>
+        </div>
+    </section>
+
+    <section class="forslides container">
+        <div class="main flex_c">
+            <section class="products flex_c">
+                <div class="t-center center margin40">
+                    <h1 class="products_title">Produtos em destaque</h1>
+                </div>
+                <section class="slides_prod fullW">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            @for ($s = 0; $s < 5; $s++)
+                                <div class="swiper-slide item_produtos">
+                                    <div class="card_produto">
+                                        <img src="{{ Vite::asset('resources/assets/site/img/product.png') }}"
+                                            class="produto_img">
+                                        <h2 class="produto_titulo">Máscara Calmante Facial 250g</h2>
+                                        <p class="produto_marca">Vedis</p>
+                                        <button class="btn_login">
+                                            FAÇA LOGIN <br> PARA COMPRAR
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
+                                                viewBox="0 0 19 18" fill="none">
+                                                <g clip-path="url(#clip0_1_37)">
+                                                    <path d="M2 9H17M17 9L10.25 2.25M17 9L10.25 15.75" stroke="white"
+                                                        stroke-width="2" />
+                                                </g>
+                                                <defs>
+                                                    <clipPath id="clip0_1_37">
+                                                        <rect width="18" height="18" fill="white"
+                                                            transform="translate(0.5)" />
+                                                    </clipPath>
+                                                </defs>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            @endfor
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                </section>
             </section>
         </div>
     </section>
@@ -96,6 +140,33 @@
             pagination: {
                 el: '.slides .swiper-pagination',
                 clickable: true,
+            },
+            breakpoints: {
+                1150: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                },
+                750: {
+                    slidesPerView: 2,
+                },
+                599: {
+                    slidesPerView: 1,
+                }
+            }
+        });
+
+        var swiper = new Swiper('.slides_prod .swiper-container', {
+            slidesPerView: 4,
+            spaceBetween: 20,
+            slidesPerGroup: 1,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: true,
+            },
+            loop: true, // Adicionado o loop
+            navigation: {
+                nextEl: '.slides_prod .swiper-button-next',
+                prevEl: '.slides_prod .swiper-button-prev',
             },
             breakpoints: {
                 1150: {

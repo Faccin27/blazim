@@ -215,6 +215,9 @@ form{width:100%;display: flex;flex-wrap: wrap;justify-content: space-between;}
 .margin100{
     margin-bottom: 100px;
 }
+.margin80{
+    margin-bottom: 80px;
+}
 .margin50{
     margin-bottom: 50px;
 }
