@@ -5,6 +5,7 @@ use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\RepresentantesController;
 use App\Http\Controllers\SobreController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,3 +32,7 @@ Route::get('/blog-detalhes', [BlogController::class, 'detalhes'])->name('blog.de
 /* Produtos */
 Route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos');
 Route::get('/produtos-detalhes', [ProdutosController::class, 'detalhes'])->name('produtos.detalhes');
+
+
+// Representantes
+Route::get('/representantes', [RepresentantesController::class, 'index'])->name('representantes');

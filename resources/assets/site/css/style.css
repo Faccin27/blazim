@@ -21,3 +21,57 @@ body{
     height: 100%;
 }
 
+
+.mainRep{
+    padding-top: 41px;
+}
+
+.leftsection{
+    border-radius: 10px;
+    background: #FFF;
+    min-width: 700px;
+    margin-right: 85px;
+}
+
+.pad{
+    padding: 60px;
+}
+.rep_name{
+    color: #1A4581;
+font-family: Raleway;
+font-size: 30px;
+font-style: normal;
+font-weight: 800;
+line-height: 100%; /* 30px */
+letter-spacing: -0.9px;
+padding-bottom: 20px;
+}
+
+.rep_email{
+    color: #3F3F3F;
+font-family: Poppins;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+padding-bottom: 20px;
+
+}
+
+
+.rightsection{
+    border-radius: 10px;
+background: #FFF;
+min-width: 400px;
+min-height: 400px;
+}
+
+.inputs_right{
+    padding-top: 60px;
+}
+
+.rep_form input, textarea{
+    border-radius: 5px;
+    border: 1px solid #AFB6BD;
+    background: #FFF;
+}

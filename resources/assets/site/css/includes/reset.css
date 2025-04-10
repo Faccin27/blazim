@@ -85,7 +85,6 @@ form{width:100%;display: flex;flex-wrap: wrap;justify-content: space-between;}
 .b_input{width:75%;}
 .s_input{width:25%;}
 .f_input{width: 100%;}
-.msg{min-height:110px;resize: none;}
 
 .button{
     border-radius:6px;
