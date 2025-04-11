@@ -21,57 +21,217 @@ body{
     height: 100%;
 }
 
-
-.mainRep{
+.mainRep {
     padding-top: 41px;
 }
 
-.leftsection{
+.leftsection {
     border-radius: 10px;
     background: #FFF;
     min-width: 700px;
     margin-right: 85px;
 }
 
-.pad{
+.pad {
     padding: 60px;
 }
-.rep_name{
+
+.rep_name {
     color: #1A4581;
-font-family: Raleway;
-font-size: 30px;
-font-style: normal;
-font-weight: 800;
-line-height: 100%; /* 30px */
-letter-spacing: -0.9px;
-padding-bottom: 20px;
+    font-family: Raleway;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 100%;
+    letter-spacing: -0.9px;
+    padding-bottom: 20px;
 }
 
-.rep_email{
+.rep_email {
     color: #3F3F3F;
-font-family: Poppins;
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-padding-bottom: 20px;
-
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-bottom: 20px;
 }
 
-
-.rightsection{
+.rightsection {
     border-radius: 10px;
-background: #FFF;
-min-width: 400px;
-min-height: 400px;
+    background: #FFF;
+    min-width: 400px;
+    height: fit-content;
 }
 
-.inputs_right{
+.inputs_right {
     padding-top: 60px;
 }
 
-.rep_form input, textarea{
+.rep_form input, textarea {
     border-radius: 5px;
     border: 1px solid #AFB6BD;
     background: #FFF;
+}
+
+.rep_form .input {
+    width: 80%;
+    margin-bottom: 20px;
+    padding: 12px;
+    font-family: Poppins;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #AFB6BD;
+    background: #FFF;
+}
+
+.rep_form textarea {
+    min-height: 120px;
+    resize: none;
+}
+
+.rep_form .submit-btn {
+    display: flex;
+    height: 49px;
+    padding: 11px 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #59C00B;
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 80%;
+    margin-bottom: 70px;
+}
+
+/* Add these responsive styles */
+.mainRepresentantes.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.main.mainRep {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flex_c {
+    display: flex;
+    flex-direction: column;
+}
+
+.middle {
+    align-items: center;
+}
+
+/* Contact button styling */
+.rep_contact_button {
+    margin-bottom: 20px;
+}
+
+.fale-conosco-botao {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #59C00B;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-family: Poppins;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 1200px) {
+    .leftsection {
+        min-width: 45%;
+        margin-right: 40px;
+    }
+
+    .rightsection {
+        min-width: 45%;
+    }
+
+    .pad {
+        padding: 40px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .main.mainRep {
+        flex-direction: column;
+    }
+
+    .leftsection {
+        min-width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .rightsection {
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .pad {
+        padding: 30px;
+    }
+
+    .rep_name {
+        font-size: 24px;
+    }
+
+    .rep_form .input {
+        width: 90%;
+    }
+
+    .rep_form .submit-btn {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .mainRep {
+        padding-top: 20px;
+    }
+
+    .pad {
+        padding: 20px;
+    }
+
+    .rep_name {
+        font-size: 20px;
+    }
+
+    .rep_email {
+        font-size: 14px;
+    }
+
+    .inputs_right {
+        padding-top: 30px;
+    }
+
+    .rep_form .input {
+        width: 100%;
+    }
+
+    .rep_form .submit-btn {
+        width: 100%;
+        margin-bottom: 40px;
+    }
 }
