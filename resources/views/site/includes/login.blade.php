@@ -1,13 +1,16 @@
-{{-- @if ($popup->ativo)
-    <div id="mainpop" class="modal_wrap" style="background-color: red">
-        <div class="modal_box">
-            <div class="modal_data">
-                <a href="javascript:;" target="_blank">
-                    <img src="{{ Vite::asset('resources/assets/site/img/powerdent.png') }}" alt="login"
-                        title="Cadastre-se" />
-                </a>
-            </div>
-            <button class="modal_close"></button>
-        </div>
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="toggleModal()">&times;</span>
+        <h2>login para pedidos</h2>
+        <form method="POST" action="javascript:;">
+            @csrf
+            <input type="text" name="login" placeholder="Login:" required>
+            <input type="password" name="password" placeholder="Senha:" required>
+            <button type="submit">ENTRAR</button>
+        </form>
+        <p class="no-login">
+            Ainda não possui login?<br>
+            <a href="#">Entre em contato</a>
+        </p>
     </div>
-@endif --}}
+</div>

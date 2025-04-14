@@ -20,6 +20,7 @@
     @yield('conteudo')
 
     @include('site.includes.footer')
+    @include('site.includes.login')
 
     @yield('pageScripts')
 

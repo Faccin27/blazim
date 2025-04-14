@@ -11,21 +11,60 @@ $(document).ready(function() {
 });
 /* FIM WHATSAPP FLUTUANTE */
 
-(function ($) {
-    $(document).ready(function(){
-        $("#mainpop").addClass("show");
-    },2500);
+// Function to toggle modal visibility
+function toggleModal() {
+    const modal = document.getElementById('loginModal');
 
-    $(".modal_close").click(function(){
-        $(".modal_wrap").removeClass("show");
+    if (modal) {
+        if (modal.style.display === "block") {
+            modal.style.display = "none";
+        } else {
+            modal.style.display = "block";
+        }
+    } else {
+        console.error("Modal element with ID 'loginModal' not found");
+    }
+}
+
+$(document).ready(function() {
+    console.log("jQuery ready");
+
+    // Get elements
+    const $loginButton = $('.btnLogin');
+    const $modal = $('#loginModal');
+
+    if ($loginButton.length === 0) {
+        console.error("Login button not found");
+        return;
+    }
+
+    if ($modal.length === 0) {
+        console.error("Modal not found");
+        return;
+    }
+
+    // Set initial state
+    $modal.hide();
+
+    // Setup click handler
+    $loginButton.on('click', function(e) {
+        e.preventDefault();
+        console.log("Button clicked via jQuery");
+        $modal.show();
     });
-    $(document).keyup(function(e) {
-        if (e.keyCode == 27) { // escape key maps to keycode `27`
-            $(".modal_wrap").removeClass("show");
+
+    // Setup close button
+    $('.close').on('click', function() {
+        $modal.hide();
+    });
+
+    // Close when clicking outside
+    $(window).on('click', function(event) {
+        if (event.target === $modal[0]) {
+            $modal.hide();
         }
     });
-})(jQuery);
-
+});
 document.addEventListener('DOMContentLoaded', function () {
     // Seleciona todos os itens do menu com submenus
     const menuItems = document.querySelectorAll('.menuMobileContent .dl-menu li');

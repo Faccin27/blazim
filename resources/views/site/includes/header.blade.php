@@ -96,6 +96,7 @@
             </nav>
 
             <div class="flex gap30 middle">
+
                 <a href="javascript:;" id="btnLogin" class="btnLogin flex middle med-t whiteFont">
                     Pedidos
                 </a>
@@ -111,5 +112,4 @@
         </div>
     </section>
     @include('site.includes.menuMobile')
-    @include('site.includes.login')
 </header>
