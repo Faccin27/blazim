@@ -73,6 +73,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item  {{ Request::routeIs('admin.categoria') ? 'active' : null }}">
+                    <a href="{{ route('admin.categoria') }}" class='sidebar-link'>
+                        <i class="bi bi-chevron-right"></i>
+                        <span>Categorias</span>
+                    </a>
+                </li>
+
                 <li class="sidebar-item  {{ Request::routeIs('admin.site*') ? 'active' : null }}">
                     <a href="{{ route('admin.site') }}" class='sidebar-link'>
                         <i class="bi bi-chevron-right"></i>

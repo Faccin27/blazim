@@ -9,17 +9,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class Marca extends Model
+class Categoria extends Model
 {
     use HasFactory, Sluggable, SluggableScopeHelpers;
 
-    protected $table = "marcas";
+    protected $table = "categorias";
 
     protected $fillable = [
         'id',
+        'id_marca',
         'nome',
         'slug',
-        'foto',
         'ordem'
     ];
 
@@ -33,16 +33,16 @@ class Marca extends Model
         ];
     }
 
-
-    public function categorias(){
-        return $this->hasMany(Categoria::class, "id_marca");
+    public function marca()
+    {
+        return $this->belongsTo(Marca::class, "id_marca");
     }
 
     public function scopeSearch(Builder $builder, string $string = "")
     {
         if ($string) {
 
-            $builder->where('marcas.nome', 'LIKE', "%{$string}%");
+            $builder->where('categorias.nome', 'LIKE', "%{$string}%");
         }
 
         return $builder;
@@ -53,8 +53,8 @@ class Marca extends Model
     {
         parent::boot();
 
-        static::addGlobalScope('orderDefault', function(Builder $builder) {
-            $builder->orderBy('marcas.ordem', 'ASC')->orderBy('marcas.id', 'DESC');
+        static::addGlobalScope('orderDefault', function (Builder $builder) {
+            $builder->orderBy('categorias.ordem', 'ASC')->orderBy('categorias.id', 'DESC');
         });
     }
 }

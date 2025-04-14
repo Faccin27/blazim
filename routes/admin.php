@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\CategoriaController;
 use App\Http\Controllers\Admin\CkEditor;
 use App\Http\Controllers\Admin\InicioController;
 use App\Http\Controllers\Admin\LoginController;
@@ -70,3 +71,13 @@ Route::post('/marca/alterar/{marca}', [MarcaController::class, 'update'])->name(
 Route::post('/marca/alterar-fotos/{marca}', [MarcaController::class, 'updateFotos'])->name('marca.updateFotos')->middleware('auth');
 Route::post('/marca/ordenar', [MarcaController::class, 'order'])->name('marca.order')->middleware('auth');
 Route::post('/marca/destruir/{marca}', [MarcaController::class, 'destroy'])->name('marca.destroy')->middleware('auth');
+
+/* Categoria */
+Route::get('/categoria', [CategoriaController::class, 'index'])->name('categoria')->middleware('auth');
+Route::get('/categoria/criar', [CategoriaController::class, 'create'])->name('categoria.create')->middleware('auth');
+Route::get('/categoria/{categoria}', [CategoriaController::class, 'edit'])->name('categoria.edit')->middleware('auth');
+
+Route::post('/categoria', [CategoriaController::class, 'store'])->name('categoria.store')->middleware('auth');
+Route::post('/categoria/alterar/{categoria}', [CategoriaController::class, 'update'])->name('categoria.update')->middleware('auth');
+Route::post('/categoria/ordenar', [CategoriaController::class, 'order'])->name('categoria.order')->middleware('auth');
+Route::post('/categoria/destruir/{categoria}', [CategoriaController::class, 'destroy'])->name('categoria.destroy')->middleware('auth');
