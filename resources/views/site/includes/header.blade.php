@@ -48,7 +48,6 @@
     <div class="menuHeader">
         <div class="main flex_r middle">
             <ul class="menuProdutosDesk">
-
                 <li class="menuCategoria">
                     <a href="javascript:;" class="drop">
                         <figure class="whFitImg flex">
@@ -59,21 +58,25 @@
 
                     <ul class="submenuProdutosDesk">
                         @foreach ($marcas as $marca)
-                            <li class="marcaMenu"><a href="javascript:;" class="flex_r middle">{{ $marca->nome }}
-                                    <figure class="whFitImg">
-                                        <img src="{{ @Vite::asset('resources/assets/site/img/arrowMenu.png') }}"
-                                            alt="Arrow Menu">
-                                    </figure>
-                                </a>
-                                <ul class="produtosSubmenuDesk">
-                                    @for ($y = 0; $y < 5; $y++)
-                                        <li><a href="javascript:;">Nome do produto</a></li>
-                                    @endfor
-                                </ul>
-                            </li>
+                        <li class="marcaMenu">
+                            <a href="{{route('produtos.marca', ['marca' => $marca->slug]) }}" class="flex_r middle">
+                                {{ $marca->nome }}
+                            <figure class="whFitImg">
+                                <img src="{{ @Vite::asset('resources/assets/site/img/arrowMenu.png') }}" alt="Arrow Menu">
+                            </figure>
+                        </a>
+
+                            <ul class="produtosSubmenuDesk">
+                                @foreach ($marca->categorias as $categoria)
+                                <li><a href="{{route('produtos.categoria', ['marca' => $marca->slug, 'categoria' => $categoria->slug]) }}">{{ $categoria->nome }}</a></li>
+                                @endforeach
+                            </ul>
+
+                        </li>
                         @endforeach
                     </ul>
                 </li>
+
 
 
             </ul>

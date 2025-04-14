@@ -14,9 +14,9 @@
     <section class="sectionProdutos main flex_c">
         <div class="fullW flex_r">
 
-            {{-- @isset($categorias) --}}
+            @if(isset($marca))
                 <div class="leftProdutos flex_c">
-                    <h2 class="main-t bold blueFont uppercase fontRaleway margin20">categorias</h2>
+                    <h2 class="main-t bold blueFont uppercase fontRaleway margin20">{{ $marca->nome }}</h2>
                     <a href="javascript:;" class="filtrarProd">Filtrar Produtos</a>
                     <div class="menuLateralProd fullW">
                         @include('site.includes.menuProd')
@@ -24,29 +24,36 @@
 
                     <div class="filtroMobile fullW">
                         <br>
-                        <h3 class="main-t bold blueFont uppercase fontRaleway margin20">categorias</h3>
+                        <h3 class="main-t bold blueFont uppercase fontRaleway margin20">{{ $marca->nome }}</h3>
                         @include('site.includes.menuProd')
                     </div>
                 </div>
-            {{-- @endisset --}}
+            @endif
 
-            <div class="rightProdutos flex_c">
+            <div class="rightProdutos {{ request()->routeIs('produtos') ? 'fullW' : '' }} flex_c">
 
                 <div class="gridPrdutos grid3">
-                    @for ($s = 0; $s < 8; $s++)
+                    @foreach ($produtos as $produto)
                         <div class="flex_c itemProdutos middle gap20">
-                            <a href="{{ route('produtos.detalhes') }}" class="margin20">
+                            <a href="{{ route('produtos.detalhes', ['produto' => $produto->slug]) }}" class="margin20">
                                 <figure>
-                                    <img src="https://dummyimage.com/400x400/" alt="nome produto">
+                                    <img src="{{ $produto->foto_thumb }}" alt="{{ $produto->nome }}">
                                 </figure>
                             </a>
-                            <a href="javascript:;"
-                                class="small-t t-center center blackFont medium">nome do produto
+
+                            {{-- Título --}}
+                            <a href="{{ route('produtos.detalhes', ['produto' => $produto->slug]) }}"
+                                class="small-t t-center center blackFont medium">{{ $produto->nome }}
                             </a>
 
+                            {{-- Marca --}}
                             <h3 class="small-t t-center center blueFont bold uppercase">
-                               marca produto
+                                {{ $produto->categoria->nome }}
                             </h3>
+
+                            @if (session('acesso_autorizado', false))
+                                <h4 class="lightBlueFont bold t-center center">R$ {{ moeda($produto->valor) }}</h4>
+                            @else
                                 <a href="javascript:;"
                                     class="btnComprar zoomEfct flex whiteFont middle gap10 t-center">
                                     FAÇA LOGIN PARA COMPRAR
@@ -54,10 +61,15 @@
                                         <img src="{{ @Vite::asset('resources/assets/site/img/arrowButton.png') }}" alt="Seta Icon">
                                     </figure>
                                 </a>
+                            @endif
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
-
+               <nav>
+                    {{ $produtos->appends([
+                            'busca' => isset($busca) ? $busca : null,
+                        ])->links() }}
+                </nav>
             </div>
         </div>
     </section>

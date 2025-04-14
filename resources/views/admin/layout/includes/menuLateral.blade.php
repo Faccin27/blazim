@@ -80,6 +80,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item  {{ Request::routeIs('admin.produto') ? 'active' : null }}">
+                    <a href="{{ route('admin.produto') }}" class='sidebar-link'>
+                        <i class="bi bi-chevron-right"></i>
+                        <span>Produtos</span>
+                    </a>
+                </li>
+
                 <li class="sidebar-item  {{ Request::routeIs('admin.site*') ? 'active' : null }}">
                     <a href="{{ route('admin.site') }}" class='sidebar-link'>
                         <i class="bi bi-chevron-right"></i>

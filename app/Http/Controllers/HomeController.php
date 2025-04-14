@@ -17,16 +17,10 @@ class HomeController extends SiteBaseController
     {
         $this->viewData['popup'] = Popup::first();
         $this->viewData['banners'] = Banner::all();
-        $this->viewData['marcas'] = Marca::all();
 
 
         return view('site.home', $this->viewData);
     }
 
-    public function home2()
-    {
-        $this->viewData['popup'] = Popup::first();
 
-        return view('site.homeDois', $this->viewData);
-    }
 }

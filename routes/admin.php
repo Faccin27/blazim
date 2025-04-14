@@ -81,3 +81,18 @@ Route::post('/categoria', [CategoriaController::class, 'store'])->name('categori
 Route::post('/categoria/alterar/{categoria}', [CategoriaController::class, 'update'])->name('categoria.update')->middleware('auth');
 Route::post('/categoria/ordenar', [CategoriaController::class, 'order'])->name('categoria.order')->middleware('auth');
 Route::post('/categoria/destruir/{categoria}', [CategoriaController::class, 'destroy'])->name('categoria.destroy')->middleware('auth');
+/* Produto */
+Route::get('/produto', [ProdutoController::class, 'index'])->name('produto')->middleware('auth');
+Route::get('/produto/ajax-categorias', [ProdutoController::class, 'ajaxCategoria'])->name('produto.ajaxCategoria')->middleware('auth');
+Route::get('/produto/criar', [ProdutoController::class, 'create'])->name('produto.create')->middleware('auth');
+Route::get('/produto/{produto}', [ProdutoController::class, 'edit'])->name('produto.edit')->middleware('auth');
+Route::get('/produto/fotos/{produto}', [ProdutoController::class, 'fotos'])->name('produto.fotos')->middleware('auth');
+
+Route::post('/produto', [ProdutoController::class, 'store'])->name('produto.store')->middleware('auth');
+Route::post('/produto/alterar/{produto}', [ProdutoController::class, 'update'])->name('produto.update')->middleware('auth');
+Route::post('/produto/alterar-fotos/{produto}', [ProdutoController::class, 'updateFotos'])->name('produto.updateFotos')->middleware('auth');
+Route::post('/produto/ordenar', [ProdutoController::class, 'order'])->name('produto.order')->middleware('auth');
+Route::post('/produto/ordenar-fotos', [ProdutoController::class, 'orderProdutoFoto'])->name('produto.orderProdutoFoto')->middleware('auth');
+Route::post('/produto/destruir-fotos/{produto}', [ProdutoController::class, 'destroyAllProdutoFoto'])->name('produto.destroyAllProdutoFoto')->middleware('auth');
+Route::post('/produto/destruir-foto/{produtoFoto}', [ProdutoController::class, 'destroyProdutoFoto'])->name('produto.destroyProdutoFoto')->middleware('auth');
+Route::post('/produto/destruir/{produto}', [ProdutoController::class, 'destroy'])->name('produto.destroy')->middleware('auth');
