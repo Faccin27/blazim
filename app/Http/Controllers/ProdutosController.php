@@ -81,7 +81,7 @@ class ProdutosController extends SiteBaseController
             ->take(3)
             ->get();
 
-        return view('site.produtosDetalhes', $this->viewData);
+        return view('site.produtosDetalhe', $this->viewData);
 
     }
 }
