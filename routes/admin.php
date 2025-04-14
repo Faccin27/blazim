@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CkEditor;
 use App\Http\Controllers\Admin\InicioController;
 use App\Http\Controllers\Admin\LoginController;
+use App\Http\Controllers\Admin\MarcaController;
 use App\Http\Controllers\Admin\PopupController;
 use App\Http\Controllers\Admin\ProdutoController;
 use App\Http\Controllers\Admin\SiteController;
@@ -57,3 +58,15 @@ Route::post('/banner/alterar/{banner}', [BannerController::class, 'update'])->na
 Route::post('/banner/alterar-fotos/{banner}', [BannerController::class, 'updateFotos'])->name('banner.updateFotos')->middleware('auth');
 Route::post('/banner/ordenar', [BannerController::class, 'order'])->name('banner.order')->middleware('auth');
 Route::post('/banner/destruir/{banner}', [BannerController::class, 'destroy'])->name('banner.destroy')->middleware('auth');
+
+/* Marca */
+Route::get('/marca', [MarcaController::class, 'index'])->name('marca')->middleware('auth');
+Route::get('/marca/criar', [MarcaController::class, 'create'])->name('marca.create')->middleware('auth');
+Route::get('/marca/{marca}', [MarcaController::class, 'edit'])->name('marca.edit')->middleware('auth');
+Route::get('/marca/fotos/{marca}', [MarcaController::class, 'fotos'])->name('marca.fotos')->middleware('auth');
+
+Route::post('/marca', [MarcaController::class, 'store'])->name('marca.store')->middleware('auth');
+Route::post('/marca/alterar/{marca}', [MarcaController::class, 'update'])->name('marca.update')->middleware('auth');
+Route::post('/marca/alterar-fotos/{marca}', [MarcaController::class, 'updateFotos'])->name('marca.updateFotos')->middleware('auth');
+Route::post('/marca/ordenar', [MarcaController::class, 'order'])->name('marca.order')->middleware('auth');
+Route::post('/marca/destruir/{marca}', [MarcaController::class, 'destroy'])->name('marca.destroy')->middleware('auth');

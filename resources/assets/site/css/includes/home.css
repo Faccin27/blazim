@@ -1,12 +1,22 @@
-.forslides{
-    background-color: #F5F5F5;
-}
-
-.item_marcas img{
+.item_marcas {
+    width: 240px;
+    height: 140px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 10px;
     background: #FFFFFF;
     box-shadow: 0px 7px 29px 0px rgba(237, 237, 237, 0.20);
+    overflow: hidden;
+    flex-shrink: 0;
 }
+
+.item_marcas img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
 
 .card_produto {
     border-radius: 10px;

@@ -31,11 +31,11 @@
             <section class="slides margin80 slidesbrand">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        @for ($s = 0; $s < 5; $s++)
+                        @foreach ($marcas as $marca)
                             <a href="javascript:;" class="swiper-slide item_marcas">
-                                <img src="{{ Vite::asset('resources/assets/site/img/powerdent.png') }}">
+                                <img src="{{ $marca->foto }}" alt="Banner">
                             </a>
-                        @endfor
+                        @endforeach
                     </div>
 
                 </div>
