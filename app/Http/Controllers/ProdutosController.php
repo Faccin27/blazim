@@ -14,6 +14,8 @@ class ProdutosController extends SiteBaseController
     {
         return view('site.produtosDetalhe', $this->viewData);
     }
-
-
+    public function carrinho()
+    {
+        return view('site.carrinho', $this->viewData);
+    }
 }

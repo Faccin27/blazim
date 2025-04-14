@@ -111,4 +111,5 @@
         </div>
     </section>
     @include('site.includes.menuMobile')
+    @include('site.includes.login')
 </header>

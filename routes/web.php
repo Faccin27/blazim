@@ -32,6 +32,7 @@ Route::get('/blog-detalhes', [BlogController::class, 'detalhes'])->name('blog.de
 /* Produtos */
 Route::get('/produtos', [ProdutosController::class, 'index'])->name('produtos');
 Route::get('/produtos-detalhes', [ProdutosController::class, 'detalhes'])->name('produtos.detalhes');
+Route::get('/carrinho', [ProdutosController::class, 'carrinho'])->name('carrinho');
 
 
 // Representantes
