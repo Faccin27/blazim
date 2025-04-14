@@ -66,7 +66,26 @@
                     </a>
                 </li>
 
-                <li class="sidebar-item  {{ Request::routeIs('admin.marca') ? 'active' : null }}">
+                <li class="sidebar-item has-sub {{ Request::routeIs('admin.marca*') || Request::routeIs('admin.tipos*') || Request::routeIs('admin.marca*') ? 'active' : null }}">
+                    <a href="#" class='sidebar-link'>
+                        <i class="bi bi-chevron-right"></i>
+                        <span>Produtos</span>
+                    </a>
+                    <ul class="submenu {{ Request::routeIs('admin.categorias*') || Request::routeIs('admin.tipos*') || Request::routeIs('admin.produtos*') ? 'active' : null }}">
+                        <li class="submenu-item {{ Request::routeIs('admin.marca*') ? 'active' : null }}">
+                            <a href="{{ route('admin.marca') }}" class="submenu-link">Marca</a>
+                        </li>
+                        <li class="submenu-item {{ Request::routeIs('admin.categoria*') ? 'active' : null }}">
+                            <a href="{{ route('admin.categoria') }}" class="submenu-link">Categorias</a>
+                        </li>
+
+                        <li class="submenu-item {{ Request::routeIs('admin.produto*') ? 'active' : null }}">
+                            <a href="{{ route('admin.produto') }}" class="submenu-link">Produtos</a>
+                        </li>
+                    </ul>
+                </li>
+
+                {{-- <li class="sidebar-item  {{ Request::routeIs('admin.marca') ? 'active' : null }}">
                     <a href="{{ route('admin.marca') }}" class='sidebar-link'>
                         <i class="bi bi-chevron-right"></i>
                         <span>Marcas</span>
@@ -85,7 +104,7 @@
                         <i class="bi bi-chevron-right"></i>
                         <span>Produtos</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="sidebar-item  {{ Request::routeIs('admin.site*') ? 'active' : null }}">
                     <a href="{{ route('admin.site') }}" class='sidebar-link'>
@@ -101,22 +120,9 @@
                     </a>
                 </li>
 
-                {{--
-				<li class="sidebar-item has-sub {{ Request::routeIs('admin.categorias*') || Request::routeIs('admin.tipos*') || Request::routeIs('admin.produtos*') ? 'active' : null }}">
-                    <a href="#" class='sidebar-link'>
-                        <i class="bi bi-chevron-right"></i>
-                        <span>Produtos</span>
-                    </a>
-                    <ul class="submenu {{ Request::routeIs('admin.categorias*') || Request::routeIs('admin.tipos*') || Request::routeIs('admin.produtos*') ? 'active' : null }}">
-                        <li class="submenu-item {{ Request::routeIs('admin.categorias*') ? 'active' : null }}">
-                            <a href="{{ route('admin.categorias') }}" class="submenu-link">Categorias</a>
-                        </li>
-                        <li class="submenu-item {{ Request::routeIs('admin.produtos*') ? 'active' : null }}">
-                            <a href="{{ route('admin.produtos') }}" class="submenu-link">Produtos</a>
-                        </li>
-                    </ul>
-                </li>
-				--}}
+
+
+
             </ul>
         </div>
     </div>
