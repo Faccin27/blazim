@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\MarcaController;
 use App\Http\Controllers\Admin\PopupController;
 use App\Http\Controllers\Admin\ProdutoController;
 use App\Http\Controllers\Admin\SiteController;
+use App\Http\Controllers\Admin\SobreController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -96,3 +97,10 @@ Route::post('/produto/ordenar-fotos', [ProdutoController::class, 'orderProdutoFo
 Route::post('/produto/destruir-fotos/{produto}', [ProdutoController::class, 'destroyAllProdutoFoto'])->name('produto.destroyAllProdutoFoto')->middleware('auth');
 Route::post('/produto/destruir-foto/{produtoFoto}', [ProdutoController::class, 'destroyProdutoFoto'])->name('produto.destroyProdutoFoto')->middleware('auth');
 Route::post('/produto/destruir/{produto}', [ProdutoController::class, 'destroy'])->name('produto.destroy')->middleware('auth');
+
+/* Sobre */
+Route::get('/sobre/{sobre}', [SobreController::class, 'edit'])->name('sobre.edit')->middleware('auth');
+Route::get('/sobre/fotos/{sobre}', [SobreController::class, 'fotos'])->name('sobre.fotos')->middleware('auth');
+
+Route::post('/sobre/alterar/{sobre}', [SobreController::class, 'update'])->name('sobre.update')->middleware('auth');
+Route::post('/sobre/alterar-fotos/{sobre}', [SobreController::class, 'updateFotos'])->name('sobre.updateFotos')->middleware('auth');

@@ -16,22 +16,22 @@
                 <div>
                     <h1 class="about_title margin50">Blazim Distribuidora – Excelência em Conectar Marcas ao Varejo</h1>
                     <div class="about_description">
-                        <p>A Blazim Distribuidora é uma empresa especializada na distribuição de produtos voltados à saúde,
-                            beleza, higiene e bem-estar. Com atuação sólida no mercado e um portfólio amplo e diversificado,
-                            somos o elo entre grandes marcas e o varejo, entregando soluções completas para atender às
-                            necessidades do consumidor moderno.</p>
+                            <p>A Blazim Distribuidora é uma empresa especializada na distribuição de produtos voltados à saúde,
+                                beleza, higiene e bem-estar. Com atuação sólida no mercado e um portfólio amplo e diversificado,
+                                somos o elo entre grandes marcas e o varejo, entregando soluções completas para atender às
+                                necessidades do consumidor moderno.</p>
 
-                        <p>
-                            Nosso compromisso vai além da logística. Trabalhamos com foco em excelência operacional,
-                            relacionamento transparente com clientes e parceiros, e um time preparado para oferecer
-                            atendimento ágil, personalizado e de qualidade.
-                        </p>
-                        <p>Valorizamos a confiança construída com nossos fornecedores e a fidelidade de nossos clientes, que
-                            reconhecem na Blazim um parceiro estratégico para o crescimento sustentável de seus negócios.
-                        </p>
-                        <p>Com estrutura eficiente, logística integrada e visão de futuro, seguimos expandindo nossa
-                            presença no mercado, sempre guiados por valores como seriedade, comprometimento e ética.</p>
-                        <p>Blazim Distribuidora – sua parceira de confiança na distribuição.</p>
+                            <p>
+                                Nosso compromisso vai além da logística. Trabalhamos com foco em excelência operacional,
+                                relacionamento transparente com clientes e parceiros, e um time preparado para oferecer
+                                atendimento ágil, personalizado e de qualidade.
+                            </p>
+                            <p>Valorizamos a confiança construída com nossos fornecedores e a fidelidade de nossos clientes, que
+                                reconhecem na Blazim um parceiro estratégico para o crescimento sustentável de seus negócios.
+                            </p>
+                            <p>Com estrutura eficiente, logística integrada e visão de futuro, seguimos expandindo nossa
+                                presença no mercado, sempre guiados por valores como seriedade, comprometimento e ética.</p>
+                            <p>Blazim Distribuidora – sua parceira de confiança na distribuição.</p>
                     </div>
                 </div>
                 <div class="about_image">
