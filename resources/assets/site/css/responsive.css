@@ -368,3 +368,58 @@
         flex-direction: column;
     }
 }
+
+
+/* Representantes */
+@media screen and (max-width: 1080px) {
+    .leftRepresentantes{
+        margin-top: 50px;
+        min-height: auto;
+        order: 2;
+    }
+
+    .leftRepresentantes,.rightRepresentantes{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .leftRepresentantes{
+        flex-direction: column;
+        padding: 60px 20px ;
+    }
+}
+
+/* Contato */
+
+@media screen and (max-width: 1100px){
+    .contato .main{
+        flex-direction: column;
+        gap: 40px;
+    }
+    .contato .e_input,.contato .formulario,.contato .t_input{
+        width: 100%;
+    }
+}
+
+/* Mapa */
+
+@media screen and (max-width: 1300px){
+    .blocoRep{
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .blocoRep{
+        position: relative;
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        min-width: 200px;
+    }
+
+    .sectionMapa{
+        flex-direction: column;
+    }
+}
