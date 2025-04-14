@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\CkEditor;
 use App\Http\Controllers\Admin\InicioController;
 use App\Http\Controllers\Admin\LoginController;
@@ -44,3 +45,15 @@ Route::post('/users', [UserController::class, 'store'])->name('users.store')->mi
 Route::post('/users/alterar/{user}', [UserController::class, 'update'])->name('users.update')->middleware('auth')->can('update', 'user');
 Route::post('/users/alterar-senha/{user}', [UserController::class, 'updatePassword'])->name('users.updatePassword')->middleware('auth')->can('update', 'user');
 Route::post('/users/destruir/{user}', [UserController::class, 'destroy'])->name('users.destroy')->middleware('auth')->can('delete', 'user');
+
+/* Banner */
+Route::get('/banner', [BannerController::class, 'index'])->name('banner')->middleware('auth');
+Route::get('/banner/criar', [BannerController::class, 'create'])->name('banner.create')->middleware('auth');
+Route::get('/banner/{banner}', [BannerController::class, 'edit'])->name('banner.edit')->middleware('auth');
+Route::get('/banner/fotos/{banner}', [BannerController::class, 'fotos'])->name('banner.fotos')->middleware('auth');
+
+Route::post('/banner', [BannerController::class, 'store'])->name('banner.store')->middleware('auth');
+Route::post('/banner/alterar/{banner}', [BannerController::class, 'update'])->name('banner.update')->middleware('auth');
+Route::post('/banner/alterar-fotos/{banner}', [BannerController::class, 'updateFotos'])->name('banner.updateFotos')->middleware('auth');
+Route::post('/banner/ordenar', [BannerController::class, 'order'])->name('banner.order')->middleware('auth');
+Route::post('/banner/destruir/{banner}', [BannerController::class, 'destroy'])->name('banner.destroy')->middleware('auth');

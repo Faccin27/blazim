@@ -9,17 +9,17 @@
         <div id="banner2">
             <div class="swiper-container">
                 <div class="swiper-wrapper">
-                    @for ($b = 0; $b < 3; $b++)
-                        <a href="javascript:;" class="swiper-slide flex_c">
+                    @foreach ($banners as $banner)
+                        <a {!! !empty($banner->url) ? 'href="' . $banner->url . '"' : null !!} class="swiper-slide flex_c">
                             <figure class="bannerDesk flex">
-                                <img src="{{ @Vite::asset('resources/assets/site/img/banner.png') }}" alt="Banner">
+                                <img src="{{ $banner->foto_computador }}" alt="Banner">
                             </figure>
 
                             <figure class="bannerMobile flex">
-                                <img src="https://dummyimage.com/900x900/" alt="Banner">
+                                <img src="{{ $banner->foto_celular }}" alt="Banner">
                             </figure>
                         </a>
-                    @endfor
+                    @endforeach
                 </div>
                 <div class="swiper-pagination"></div>
             </div>

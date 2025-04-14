@@ -59,6 +59,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item  {{ Request::routeIs('admin.banner') ? 'active' : null }}">
+                    <a href="{{ route('admin.banner') }}" class='sidebar-link'>
+                        <i class="bi bi-chevron-right"></i>
+                        <span>Banner</span>
+                    </a>
+                </li>
+
                 <li class="sidebar-item  {{ Request::routeIs('admin.site*') ? 'active' : null }}">
                     <a href="{{ route('admin.site') }}" class='sidebar-link'>
                         <i class="bi bi-chevron-right"></i>

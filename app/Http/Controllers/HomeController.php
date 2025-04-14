@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\Popup;
 
 class HomeController extends SiteBaseController
@@ -14,6 +15,7 @@ class HomeController extends SiteBaseController
     public function index()
     {
         $this->viewData['popup'] = Popup::first();
+        $this->viewData['banners'] = Banner::all();
 
         return view('site.home', $this->viewData);
     }
