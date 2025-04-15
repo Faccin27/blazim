@@ -52,7 +52,7 @@
 
         <div class="rightsection flex_c">
             <div class="inputs_right">
-                <form id="form_contact" class="flex_c middle rep_form" action="{{ route('contato.enviar') }}" ajax-form>
+                <form id="form_contact" class="flex_c middle rep_form" action="{{ route('contato.enviarTrabalho') }}" ajax-form>
                     <input type="text" name="nome" class="input e_input" placeholder="Nome:" required>
                     <input type="email" name="email" class="input e_input" placeholder="E-mail:" required>
                     <input type="tel" name="telefone" id="telefone" class="input e_input" placeholder="Telefone:"

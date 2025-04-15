@@ -18,6 +18,7 @@ Route::get('/marcas', [HomeController::class, 'index'])->name('home.marcas');
 Route::get('/contato', [ContatoController::class, 'index'])->name('contato');
 Route::post('/contato', [ContatoController::class, 'enviar'])->name('contato.enviar');
 Route::get('/trabalhe', [ContatoController::class, 'trabalhe'])->name('contato.trabalhe');
+Route::post('/trabalhe', [ContatoController::class, 'enviarTrabalho'])->name('contato.enviarTrabalho');
 
 /* Sobre */
 Route::get('/sobre', [SobreController::class, 'index'])->name('sobre');
