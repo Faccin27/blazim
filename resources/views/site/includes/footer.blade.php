@@ -129,4 +129,29 @@ $(window).on("scroll", function () {
         });
     }
 
+    $(document).on('submit', '#form_login', function(event) {
+         event.preventDefault();
+
+         var form = $(this);
+
+         $.ajax({
+             type: "post",
+             url: "{{ route('logarRepresentante') }}",
+             data: form.serialize(),
+             dataType: "json",
+             headers: {
+                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+             },
+             success: function(response) {
+                 window.location.reload();
+             },
+             error: function(reject) {
+
+                 const response = reject.responseJSON;
+
+                 Swal.fire("Falha!", response.erro, "error");
+             }
+         });
+     });
+
 </script>

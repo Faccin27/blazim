@@ -61,22 +61,42 @@
                                             class="produto_img">
                                         <h2 class="produto_titulo">{{ $produto->nome }}</h2>
                                         <p class="produto_marca">{{ $produto->categoria->marca->nome }}</p>
-                                        <button class="btn_login">
-                                            FAÇA LOGIN <br> PARA COMPRAR
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
-                                                viewBox="0 0 19 18" fill="none">
-                                                <g clip-path="url(#clip0_1_37)">
-                                                    <path d="M2 9H17M17 9L10.25 2.25M17 9L10.25 15.75" stroke="white"
-                                                        stroke-width="2" />
-                                                </g>
-                                                <defs>
-                                                    <clipPath id="clip0_1_37">
-                                                        <rect width="18" height="18" fill="white"
-                                                            transform="translate(0.5)" />
-                                                    </clipPath>
-                                                </defs>
-                                            </svg>
-                                        </button>
+                                        @if (session('acesso_autorizado', false))
+                                            <button class="btn_login">
+                                                <h4 class="lightBlueFont bold t-center center">R$
+                                                    {{ moeda($produto->valor) }}
+                                                </h4> <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
+                                                    viewBox="0 0 19 18" fill="none">
+                                                    <g clip-path="url(#clip0_1_37)">
+                                                        <path d="M2 9H17M17 9L10.25 2.25M17 9L10.25 15.75" stroke="white"
+                                                            stroke-width="2" />
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_1_37">
+                                                            <rect width="18" height="18" fill="white"
+                                                                transform="translate(0.5)" />
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </button>
+                                        @else
+                                            <button class="btn_login">
+                                                FAÇA LOGIN <br> PARA COMPRAR
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
+                                                    viewBox="0 0 19 18" fill="none">
+                                                    <g clip-path="url(#clip0_1_37)">
+                                                        <path d="M2 9H17M17 9L10.25 2.25M17 9L10.25 15.75" stroke="white"
+                                                            stroke-width="2" />
+                                                    </g>
+                                                    <defs>
+                                                        <clipPath id="clip0_1_37">
+                                                            <rect width="18" height="18" fill="white"
+                                                                transform="translate(0.5)" />
+                                                        </clipPath>
+                                                    </defs>
+                                                </svg>
+                                            </button>
+                                        @endif
                                     </div>
                                 </div>
                             @endforeach

@@ -5,6 +5,8 @@ use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\LogarRepresentante;
+use App\Http\Controllers\LogoutRepresentante;
 use App\Http\Controllers\RepresentantesController;
 use App\Http\Controllers\SobreController;
 use Illuminate\Support\Facades\Route;
@@ -38,3 +40,7 @@ Route::get('/carrinho', [ProdutosController::class, 'carrinho'])->name('carrinho
 
 // Representantes
 Route::get('/representantes', [RepresentantesController::class, 'index'])->name('representantes');
+
+/* Acesso */
+Route::post('/logar-representante', LogarRepresentante::class)->name('logarRepresentante');
+Route::get('/logout-representante', LogoutRepresentante::class)->name('logoutRepresentante');

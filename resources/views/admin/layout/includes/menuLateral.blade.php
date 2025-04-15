@@ -127,6 +127,13 @@
                     </a>
                 </li>
 
+                <li class="sidebar-item  {{ Request::routeIs('admin.acesso*') ? 'active' : null }}">
+                    <a href="{{ route('admin.acesso.edit', ['acesso' => 1]) }}" class='sidebar-link'>
+                        <i class="bi bi-chevron-right"></i>
+                        <span>Acesso Representantes</span>
+                    </a>
+                </li>
+
 
 
 

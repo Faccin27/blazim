@@ -11,7 +11,9 @@ use App\Http\Controllers\Admin\ProdutoController;
 use App\Http\Controllers\Admin\SiteController;
 use App\Http\Controllers\Admin\SobreController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\AcessoController;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', InicioController::class)->name('inicio')->middleware('auth');
 
@@ -104,3 +106,6 @@ Route::get('/sobre/fotos/{sobre}', [SobreController::class, 'fotos'])->name('sob
 
 Route::post('/sobre/alterar/{sobre}', [SobreController::class, 'update'])->name('sobre.update')->middleware('auth');
 Route::post('/sobre/alterar-fotos/{sobre}', [SobreController::class, 'updateFotos'])->name('sobre.updateFotos')->middleware('auth');
+
+Route::get('/acesso/{acesso}', [AcessoController::class, 'edit'])->name('acesso.edit')->middleware('auth');
+Route::post('/acesso/alterar/{acesso}', [AcessoController::class, 'update'])->name('acesso.update')->middleware('auth');

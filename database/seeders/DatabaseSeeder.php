@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Acesso;
 use App\Models\Popup;
 use App\Models\Site;
 use App\Models\Sobre;
@@ -43,6 +44,14 @@ class DatabaseSeeder extends Seeder
             Sobre::query()->create([
                 'texto' => "",
                 'foto' => ""
+            ]);
+        }
+
+        if(Acesso::query()->count() === 0){
+
+            Acesso::query()->create([
+                'login' => "representante",
+                'password' => "admin"
             ]);
         }
 
