@@ -54,13 +54,13 @@
                 <section class="slides_prod fullW">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            @for ($s = 0; $s < 5; $s++)
+                            @foreach ($produtos as $produto)
                                 <div class="swiper-slide item_produtos">
                                     <div class="card_produto">
-                                        <img src="{{ Vite::asset('resources/assets/site/img/product.png') }}"
+                                        <img src="{{ $produto->foto_thumb }}" alt="{{ $produto->nome }}"
                                             class="produto_img">
-                                        <h2 class="produto_titulo">Máscara Calmante Facial 250g</h2>
-                                        <p class="produto_marca">Vedis</p>
+                                        <h2 class="produto_titulo">{{ $produto->nome }}</h2>
+                                        <p class="produto_marca">{{ $produto->categoria->marca->nome }}</p>
                                         <button class="btn_login">
                                             FAÇA LOGIN <br> PARA COMPRAR
                                             <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
@@ -79,7 +79,7 @@
                                         </button>
                                     </div>
                                 </div>
-                            @endfor
+                            @endforeach
                         </div>
                     </div>
                     <div class="swiper-button-next"></div>

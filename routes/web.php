@@ -11,8 +11,6 @@ use Illuminate\Support\Facades\Route;
 
 /* Home */
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/home2', [HomeController::class, 'home2'])->name('home2');
-Route::get('/marcas', [HomeController::class, 'index'])->name('home.marcas');
 
 /* Contato */
 Route::get('/contato', [ContatoController::class, 'index'])->name('contato');
@@ -37,7 +35,6 @@ Route::get('/produtos/{marca:slug}/{categoria:slug}', [ProdutosController::class
 Route::get('/produto/{produto:slug}', [ProdutosController::class, 'detalhes'])->name('produtos.detalhes');
 
 Route::get('/carrinho', [ProdutosController::class, 'carrinho'])->name('carrinho');
-
 
 // Representantes
 Route::get('/representantes', [RepresentantesController::class, 'index'])->name('representantes');
