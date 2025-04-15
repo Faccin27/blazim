@@ -32,7 +32,7 @@
 
                 <div class="rightProdutos {{ request()->routeIs('produtos') ? 'fullW' : '' }} flex_c">
 
-                    <div class="gridPrdutos grid3">
+                    <div class="gridProdutos grid3">
                         @foreach ($produtos as $produto)
                             <div class="flex_c itemProdutos middle gap20">
                                 <a href="{{ route('produtos.detalhes', ['produto' => $produto->slug]) }}" class="margin20">

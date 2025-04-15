@@ -29,20 +29,33 @@
                 @include('site.includes.menu')
             </nav>
 
-            <div class="flex gap30 middle">
-                <a href="javascript:;" id="btnLogin" class="btnLogin flex middle med-t whiteFont">
-                    Pedidos
-                </a>
+            @if (session('acesso_autorizado', false))
+                <div class="flex gap30 middle">
+                    <a href="{{ route('logoutRepresentante') }}" id="btnLogin" class="btnLogin flex middle med-t whiteFont">
+                        Logout
+                    </a>
+                    <a href="javascript:;" class="carrinhoH flex middle">
+                        <div class="whFitImg flex">
+                            <img src="{{ @Vite::asset('resources/assets/site/img/cartIcon.png') }}" alt="Carrinho">
+                        </div>
 
-                <a href="javascript:;" class="carrinhoH flex middle">
-                    <div class="whFitImg flex">
-                        <img src="{{ @Vite::asset('resources/assets/site/img/cartIcon.png') }}" alt="Carrinho">
-                    </div>
+                        <span>1</span>
+                    </a>
+                @else
+                    <a href="javascript:;" id="btnLogin" class="btnLogin flex middle med-t whiteFont">
+                        Pedidos
+                    </a>
+                    <a href="javascript:;" class="carrinhoH flex middle">
+                        <div class="whFitImg flex">
+                            <img src="{{ @Vite::asset('resources/assets/site/img/cartIcon.png') }}" alt="Carrinho">
+                        </div>
 
-                    <span>1</span>
-                </a>
-            </div>
+                        <span>0</span>
+                    </a>
+            @endif
+
         </div>
+
     </section>
 
     <div class="menuHeader">
@@ -58,21 +71,25 @@
 
                     <ul class="submenuProdutosDesk">
                         @foreach ($marcas as $marca)
-                        <li class="marcaMenu">
-                            <a href="{{route('produtos.marca', ['marca' => $marca->slug]) }}" class="flex_r middle">
-                                {{ $marca->nome }}
-                            <figure class="whFitImg">
-                                <img src="{{ @Vite::asset('resources/assets/site/img/arrowMenu.png') }}" alt="Arrow Menu">
-                            </figure>
-                        </a>
+                            <li class="marcaMenu">
+                                <a href="{{ route('produtos.marca', ['marca' => $marca->slug]) }}"
+                                    class="flex_r middle">
+                                    {{ $marca->nome }}
+                                    <figure class="whFitImg">
+                                        <img src="{{ @Vite::asset('resources/assets/site/img/arrowMenu.png') }}"
+                                            alt="Arrow Menu">
+                                    </figure>
+                                </a>
 
-                            <ul class="produtosSubmenuDesk">
-                                @foreach ($marca->categorias as $categoria)
-                                <li><a href="{{route('produtos.categoria', ['marca' => $marca->slug, 'categoria' => $categoria->slug]) }}">{{ $categoria->nome }}</a></li>
-                                @endforeach
-                            </ul>
+                                <ul class="produtosSubmenuDesk">
+                                    @foreach ($marca->categorias as $categoria)
+                                        <li><a
+                                                href="{{ route('produtos.categoria', ['marca' => $marca->slug, 'categoria' => $categoria->slug]) }}">{{ $categoria->nome }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
 
-                        </li>
+                            </li>
                         @endforeach
                     </ul>
                 </li>

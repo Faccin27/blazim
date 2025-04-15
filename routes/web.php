@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CarrinhoController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProdutosController;
@@ -36,7 +37,7 @@ Route::get('/produtos/{marca:slug}', [ProdutosController::class, 'marca'])->name
 Route::get('/produtos/{marca:slug}/{categoria:slug}', [ProdutosController::class, 'categoria'])->name('produtos.categoria');
 Route::get('/produto/{produto:slug}', [ProdutosController::class, 'detalhes'])->name('produtos.detalhes');
 
-Route::get('/carrinho', [ProdutosController::class, 'carrinho'])->name('carrinho');
+Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho');
 
 // Representantes
 Route::get('/representantes', [RepresentantesController::class, 'index'])->name('representantes');
