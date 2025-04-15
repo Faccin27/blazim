@@ -133,3 +133,98 @@
 .slidesbrand{
     position: relative;
 }
+
+/* Responsive styles for the footer */
+@media (max-width: 992px) {
+    .footer .main {
+        display: block;
+      }
+
+      .footer .coluna {
+        text-align: center;
+        margin-bottom: 30px;
+        width: 100%;
+        max-width: 100%;
+      }
+
+    .logo-container {
+      flex-direction: column;
+      padding-top: 40px;
+      padding-bottom: 30px;
+    }
+
+    .logo {
+      padding-right: 0;
+      margin-bottom: 20px;
+    }
+
+    .icon:first-child {
+      margin-right: 15px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      min-height: auto;
+      padding-bottom: 20px;
+    }
+
+    .titulo {
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    .coluna li {
+      font-size: 12px;
+    }
+
+    .fale-conosco-botao {
+      padding: 8px 25px;
+    }
+
+    .fale-texto {
+      font-size: 16px;
+    }
+
+    .copyright p, .copyright a {
+      font-size: 12px;
+      padding-bottom: 25px;
+    }
+
+    .icon:first-child {
+        margin-right: 0;
+      }
+
+      .icon:last-child {
+        margin-left: 0;
+        margin-top: 12px;
+      }
+
+      .botao-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+  }
+
+  @media (max-width: 480px) {
+    .logo {
+      width: 80%;
+      max-width: 200px;
+    }
+
+    .endereco {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+
+    .email {
+      padding-bottom: 10px;
+    }
+
+    .botao-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
