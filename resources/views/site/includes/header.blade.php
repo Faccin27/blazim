@@ -39,7 +39,7 @@
                             <img src="{{ @Vite::asset('resources/assets/site/img/cartIcon.png') }}" alt="Carrinho">
                         </div>
 
-                        <span>1</span>
+                        <span>{{ $totalItensCarrinho }}</span>
                     </a>
                 @else
                     <a href="javascript:;" id="btnLogin" class="btnLogin flex middle med-t whiteFont">
@@ -129,7 +129,7 @@
                         <img src="{{ @Vite::asset('resources/assets/site/img/cartIcon.png') }}" alt="Carrinho">
                     </div>
 
-                    <span>1</span>
+                    <span>{{ $totalItensCarrinho }}</span>
                 </a>
             </div>
         </div>
