@@ -12,6 +12,29 @@
 .itemProdutos h4{
     font-size: clamp(16px,4vw,20px);
 }
+.itemProdutos figure {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: 10px;
+
+    display: block;
+}
+
+/* Adjust image to fill container completely */
+.itemProdutos .produto_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+
+}
+
+.itemProdutos a {
+    display: block;
+    width: 100%;
+}
 
 .itemProdutos img{
     width: 100%;

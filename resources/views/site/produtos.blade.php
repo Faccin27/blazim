@@ -34,10 +34,11 @@
 
                     <div class="gridProdutos grid3">
                         @foreach ($produtos as $produto)
-                            <div class="flex_c itemProdutos middle gap20">
+                            <div class="flex_c itemProdutos  middle gap20">
+
                                 <a href="{{ route('produtos.detalhes', ['produto' => $produto->slug]) }}" class="margin20">
                                     <figure>
-                                        <img src="{{ $produto->foto_thumb }}" alt="{{ $produto->nome }}">
+                                        <img src="{{ $produto->foto_thumb }}" alt="{{ $produto->nome }}" class="produto_img">
                                     </figure>
                                 </a>
 

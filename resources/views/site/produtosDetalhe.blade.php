@@ -84,14 +84,19 @@
                             @endif
 
                             @if (session('acesso_autorizado', false))
-                                <a href="{{ route('carrinho.adicionar', ['produto' => $produto->slug]) }}"
-                                    class="btnCarrinho flex middle med-t gap10 whiteFont bold zoomEfct margin50">
-                                    <figure class="whFitImg">
-                                        <img src="{{ @Vite::asset('resources/assets/site/img/cartButton.png') }}"
-                                            alt="Cart Icon">
-                                    </figure>
-                                    ADICIONAR NO CARRINHO
-                                </a>
+                                @csrf
+                                <form action="{{ route('carrinho.adicionar') }}" method="POST"
+                                    style="justify-content: center">
+                                    <button type="submit">
+                                        <a class="btnCarrinho flex middle med-t gap10 whiteFont bold zoomEfct margin50">
+                                            <figure class="whFitImg">
+                                                <img src="{{ @Vite::asset('resources/assets/site/img/cartButton.png') }}"
+                                                    alt="Cart Icon">
+                                            </figure>
+                                            ADICIONAR NO CARRINHO
+                                        </a>
+                                    </button>
+                                </form>
                             @endif
 
                             @if (!empty($produto->texto))
