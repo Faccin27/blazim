@@ -52,7 +52,11 @@
                                 </h3>
 
                                 @if (session('acesso_autorizado', false))
-                                    <button class="btn_login">
+                                @csrf
+                                <form action="{{ route('carrinho.adicionar') }}" method="POST" style="justify-content: center">
+                                <input type="hidden" name="produto_id" value="{{ $produto->id }}">
+                                <input type="hidden" name="quantidade" value="1">
+                                    <button class="btn_login" type="submit">
                                         <h4 class="lightBlueFont bold t-center center">R$
                                             {{ moeda($produto->valor) }}
                                         </h4> <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18"
@@ -69,6 +73,7 @@
                                             </defs>
                                         </svg>
                                     </button>
+                                </form>
                                 @else
                                     <a href="javascript:;" class="btnComprar zoomEfct flex whiteFont middle gap10 t-center">
                                         FAÇA LOGIN PARA COMPRAR

@@ -38,6 +38,7 @@ Route::get('/produtos/{marca:slug}/{categoria:slug}', [ProdutosController::class
 Route::get('/produto/{produto:slug}', [ProdutosController::class, 'detalhes'])->name('produtos.detalhes');
 
 Route::get('/carrinho', [CarrinhoController::class, 'index'])->name('carrinho');
+Route::post('/carrinho/adicionar', [CarrinhoController::class, 'adicionarAoCarrinho'])->name('carrinho.adicionar');
 
 // Representantes
 Route::get('/representantes', [RepresentantesController::class, 'index'])->name('representantes');

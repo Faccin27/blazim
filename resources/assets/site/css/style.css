@@ -417,3 +417,8 @@ background: #3F3F3F;
 .rightsection{
     z-index: 1;
 }
+
+
+.remove-btn{
+    border: none !important;
+}

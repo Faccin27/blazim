@@ -10,33 +10,40 @@ class CarrinhoLista extends Component
 
     public function mount()
     {
-        $this->itens = [
-            [
-                'id' => 1,
-                'nome' => 'Protetor Solar Facial BB Cream Antiacne FPS 30',
-                'preco' => 5.30,
-                'quantidade' => 1,
-                'imagem' => 'resources/assets/site/img/ricosol.png',
-            ],
-        ];
+        $carrinho = session()->get('carrinho', []);
+        $this->itens = array_values($carrinho);
     }
 
     public function incrementar($index)
     {
         $this->itens[$index]['quantidade']++;
+        $this->atualizarSessao();
     }
 
     public function decrementar($index)
     {
         if ($this->itens[$index]['quantidade'] > 1) {
             $this->itens[$index]['quantidade']--;
+            $this->atualizarSessao();
         }
     }
 
     public function remover($index)
     {
+        $itemId = $this->itens[$index]['id'];
         unset($this->itens[$index]);
-        $this->itens = array_values($this->itens); // reindexar o array $this->itens
+        $this->itens = array_values($this->itens);
+        $this->atualizarSessao();
+    }
+
+
+    private function atualizarSessao()
+    {
+        $carrinho = [];
+        foreach ($this->itens as $item) {
+            $carrinho[$item['id']] = $item;
+        }
+        session()->put('carrinho', $carrinho);
     }
 
     public function render()
